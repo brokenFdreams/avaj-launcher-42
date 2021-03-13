@@ -6,15 +6,11 @@ public class Coordinates {
     private final int height;
 
     public Coordinates(int longitude, int latitude, int height) {
-        this.longitude = longitude;
-        this.latitude = latitude;
+        this.longitude = Math.max(longitude, 0);
+        this.latitude = Math.max(latitude, 0);
         if (height > 100) {
             this.height = 100;
-        } else if (height < 0) {
-            this.height = 0;
-        } else {
-            this.height = height;
-        }
+        } else this.height = Math.max(height, 0);
     }
 
     public int getLongitude() {
