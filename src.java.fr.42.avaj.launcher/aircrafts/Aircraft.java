@@ -1,10 +1,10 @@
-package model;
+package aircrafts;
 
-public class Aircraft {
+public abstract class Aircraft {
     private static long idCounter = 0;
     private final long id;
     private final String name;
-    private final Coordinates coordinates;
+    protected Coordinates coordinates;
 
     protected Aircraft(String name, Coordinates coordinates) {
         id = nextId();
@@ -13,6 +13,11 @@ public class Aircraft {
     }
 
     private long nextId() {
-        return idCounter++;
+        return ++idCounter;
+    }
+
+    @Override
+    public String toString() {
+        return this.getClass().getName() + "#" + name + "(" + id + ")";
     }
 }

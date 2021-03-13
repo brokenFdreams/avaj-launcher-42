@@ -1,4 +1,4 @@
-package model;
+package weather;
 
 public enum Weather {
     RAIN,

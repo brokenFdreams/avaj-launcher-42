@@ -1,10 +1,11 @@
 package factory;
 
-import model.Coordinates;
-import model.Flyable;
-import model.aircrafts.Baloon;
-import model.aircrafts.Helicopter;
-import model.aircrafts.JetPlane;
+import aircrafts.Coordinates;
+import aircrafts.Flyable;
+import aircrafts.model.Baloon;
+import aircrafts.model.Helicopter;
+import aircrafts.model.JetPlane;
+import exception.AircraftException;
 
 public class AircraftFactory {
 
@@ -17,8 +18,7 @@ public class AircraftFactory {
         } else if (type.equals("Baloon")) {
             return new Baloon(name, coordinates);
         } else {
-            System.out.println("There's no type " + type);
-            return null;
+            throw new AircraftException("Invalid aircraft type");
         }
     }
 }

@@ -1,4 +1,6 @@
-package model;
+package aircrafts;
+
+import tower.WeatherTower;
 
 public interface Flyable {
     void updateConditions();

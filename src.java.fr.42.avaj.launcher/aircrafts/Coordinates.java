@@ -1,4 +1,4 @@
-package model;
+package aircrafts;
 
 public class Coordinates {
     private final int longitude;
@@ -8,7 +8,13 @@ public class Coordinates {
     public Coordinates(int longitude, int latitude, int height) {
         this.longitude = longitude;
         this.latitude = latitude;
-        this.height = height;
+        if (height > 100) {
+            this.height = 100;
+        } else if (height < 0) {
+            this.height = 0;
+        } else {
+            this.height = height;
+        }
     }
 
     public int getLongitude() {
