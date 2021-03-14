@@ -38,7 +38,7 @@ public class JetPlane extends Aircraft implements Flyable {
                     break;
                 case "SNOW":
                     coordinates = new Coordinates(longitude, latitude, height - 7);
-                    Logger.log(toString() + ": OMG! Winter is coming!\n");
+                    Logger.log(toString() + ": OMG! Winter is coming!");
                     break;
             }
         }

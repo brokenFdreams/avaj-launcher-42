@@ -26,8 +26,8 @@ public class Tower {
     }
 
     public void conditionsChanged() {
-        for (Flyable aircraft: aircrafts) {
-            aircraft.updateConditions();
+        for (int i = 0; i < aircrafts.size(); i++) {
+            aircrafts.get(i).updateConditions();
         }
     }
 }

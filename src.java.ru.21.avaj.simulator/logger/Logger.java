@@ -29,7 +29,9 @@ public class Logger {
 
     public static void close() {
         try {
-            writer.close();
+            if (writer != null) {
+                writer.close();
+            }
         } catch (IOException e) {
             System.err.println("Error closing file - " + e.getMessage());
         }

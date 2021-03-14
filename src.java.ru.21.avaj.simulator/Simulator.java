@@ -13,8 +13,8 @@ import java.io.IOException;
 public class Simulator {
 
     public static void main(String[] args) {
-        if (args.length != 0) {
-            System.out.println("Usage: ");
+        if (args.length == 0) {
+            System.out.println("Usage: java ru.21.avaj.simulator.Simulator ");
         } else {
             try (BufferedReader reader = new BufferedReader(new FileReader(args[0]))) {
                 String line = reader.readLine();
