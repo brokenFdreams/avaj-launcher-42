@@ -3,15 +3,15 @@ package tower;
 import aircrafts.Flyable;
 import logger.Logger;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Tower {
-    public final List<Flyable> aircrafts = new LinkedList<>();
+    public final List<Flyable> observers = new ArrayList<>();
 
     public void register(Flyable flyable) {
-        if (!aircrafts.contains(flyable)) {
-            aircrafts.add(flyable);
+        if (!observers.contains(flyable)) {
+            observers.add(flyable);
             Logger.log("Tower says: " +
                     flyable.toString() +
                     " registered to weather tower.");
@@ -19,15 +19,15 @@ public class Tower {
     }
 
     public void unregister(Flyable flyable) {
-        aircrafts.remove(flyable);
+        observers.remove(flyable);
         Logger.log("Tower says: " +
                 flyable.toString() +
                 " unregistered from weather tower.");
     }
 
     public void conditionsChanged() {
-        for (int i = 0; i < aircrafts.size(); i++) {
-            aircrafts.get(i).updateConditions();
+        for (int i = 0; i < observers.size(); i++) {
+            observers.get(i).updateConditions();
         }
     }
 }
