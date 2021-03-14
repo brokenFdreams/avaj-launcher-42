@@ -1,4 +1,4 @@
-package weather;
+package provider;
 
 import aircrafts.Coordinates;
 
@@ -14,7 +14,9 @@ public class WeatherProvider {
     }
 
     public String getCurrentWeather(Coordinates coordinates) {
-        //TODO: weather generation, current always SUN
-        return weather[0];
+        int coordinatesSum = coordinates.getLongitude() +
+                coordinates.getLatitude() +
+                coordinates.getHeight();
+        return weather[coordinatesSum % 4];
     }
 }

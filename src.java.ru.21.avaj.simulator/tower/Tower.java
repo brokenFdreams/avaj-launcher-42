@@ -1,6 +1,7 @@
 package tower;
 
 import aircrafts.Flyable;
+import logger.Logger;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -11,7 +12,7 @@ public class Tower {
     public void register(Flyable flyable) {
         if (!aircrafts.contains(flyable)) {
             aircrafts.add(flyable);
-            System.out.println("Tower says: " +
+            Logger.log("Tower says: " +
                     flyable.toString() +
                     " registered to weather tower.");
         }
@@ -19,7 +20,7 @@ public class Tower {
 
     public void unregister(Flyable flyable) {
         aircrafts.remove(flyable);
-        System.out.println("Tower says: " +
+        Logger.log("Tower says: " +
                 flyable.toString() +
                 " unregistered from weather tower.");
     }

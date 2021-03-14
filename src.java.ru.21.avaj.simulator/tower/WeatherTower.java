@@ -1,7 +1,7 @@
 package tower;
 
 import aircrafts.Coordinates;
-import weather.WeatherProvider;
+import provider.WeatherProvider;
 
 public class WeatherTower extends Tower {
     public String getWeather(Coordinates coordinates) {
