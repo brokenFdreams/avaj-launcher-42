@@ -19,7 +19,7 @@ public class AircraftFactory {
             case "Baloon":
                 return new Baloon(name, coordinates);
             default:
-                throw new AircraftException("Invalid aircraft type");
+                throw new AircraftException("Invalid aircraft type - " + type);
         }
     }
 }

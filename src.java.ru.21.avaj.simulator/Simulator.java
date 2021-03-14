@@ -25,9 +25,11 @@ public class Simulator {
                     WeatherTower weatherTower = new WeatherTower();
 
                     if (count <= 0) {
-                        throw new SimulationException("Invalid number of times the simulation is run");
+                        throw new SimulationException("Invalid number of times the simulation is run - " +
+                                count +
+                                ". Number needs to be positive");
                     }
-                    List<Flyable> aircafts = new ArrayList<>();
+                    List<Flyable> aircrafts = new ArrayList<>();
                     while ((line = reader.readLine()) != null) {
                         String[] aircraftParams = line.split(" ");
                         Flyable flyable = AircraftFactory.newAircraft(
@@ -36,23 +38,21 @@ public class Simulator {
                                 Integer.parseInt(aircraftParams[2]),
                                 Integer.parseInt(aircraftParams[3]),
                                 Integer.parseInt(aircraftParams[4]));
-                        aircafts.add(flyable);
+                        aircrafts.add(flyable);
                     }
-                    for (Flyable aircraft: aircafts) {
+                    for (Flyable aircraft : aircrafts) {
                         aircraft.registerTower(weatherTower);
                     }
                     for (int i = 0; i < count; i++) {
                         weatherTower.changeWeather();
                     }
                 }
-            } catch (FileNotFoundException e) {
-                System.err.println("File - " + args[0] + " not found");
+            } catch (FileNotFoundException | SimulationException | AircraftException e) {
+                System.err.println(e.getMessage());
             } catch (IOException e) {
                 System.err.println("Read file - " + args[0] + " exception");
             } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
-                System.err.println("Invalid file - " + args[0]);
-            } catch (SimulationException | AircraftException e) {
-                System.err.println(e.getMessage());
+                System.err.println("Invalid file - " + args[0] + ". Exception - " + e.getMessage());
             } finally {
                 Logger.close();
             }
